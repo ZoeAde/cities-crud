@@ -8,6 +8,8 @@ var City = new Schema({
 
 
 
-mongoose.connect('mongodb://localhost/crud-cities');
+process.env.DB_HOST = 'mongodb://localhost/crud-cities';
+mongoose.connect(process.env.DB_HOST);
+
 module.exports = mongoose.model('cities', City);
 

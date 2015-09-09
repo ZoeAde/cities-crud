@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var City = require('../cities.js');
+var dotenv = require('dotenv').load();
 
 router.get('/', function(req, res, next) {
   City.find(function(err, data){
