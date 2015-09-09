@@ -8,8 +8,9 @@ var City = new Schema({
 
 
 
-process.env.DB_HOST = 'mongodb://localhost/crud-cities';
-mongoose.connect("process.env.mongodb://heroku_lbsj7r9x:njtsja3hrhpt9bk0gspdg9bkic@ds051368.mongolab.com:51368/heroku_lbsj7r9x" || "mongodb://localhost/crud-cities");
+// process.env.MONGOLAB_URI = 'mongodb://localhost/crud-cities';
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/crud-cities");
 
+console.log(process.env)
 module.exports = mongoose.model('cities', City);
 
