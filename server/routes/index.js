@@ -46,13 +46,18 @@ router.post('/cities', function(req, res, next) {
 
 //PUT single city
 router.put('/cities/:id', function(req, res, next) {
-  console.log(req.body.name);
-  console.log(req.body.state);
+
+  console.log(req.params.id);
+
+  var options = {new: true};
   var update = {
     name: req.body.name,
     state: req.body.state
   };
-  City.findByIdAndUpdate(req.params.id, update, function(err, data) {
+
+  console.log(update);
+
+  City.findByIdAndUpdate(req.params.id, update, options, function(err, data) {
     if (err) {
       res.json({'message':err});
     } else {
